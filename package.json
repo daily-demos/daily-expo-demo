@@ -12,6 +12,7 @@
     "@daily-co/config-plugin-rn-daily-js": "file:../expo-plugins/rn-daily-js-config-plugin",
     "@daily-co/react-native-webrtc": "^1.94.1-daily.8",
     "expo": "~47.0.12",
+    "expo-build-properties": "~0.4.1",
     "expo-dev-client": "~2.0.1",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
