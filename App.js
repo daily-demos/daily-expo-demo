@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from "react";
 import { Platform } from "react-native";
-import { registerGlobals } from "react-native-webrtc";
+import { registerGlobals } from "@daily-co/react-native-webrtc";
 
 export default function App() {
 

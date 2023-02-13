@@ -10,13 +10,13 @@
   "dependencies": {
     "@config-plugins/react-native-webrtc": "^5.0.0",
     "@daily-co/config-plugin-rn-daily-js": "file:../expo-plugins/rn-daily-js-config-plugin",
+    "@daily-co/react-native-webrtc": "^1.94.1-daily.8",
     "expo": "~47.0.12",
     "expo-dev-client": "~2.0.1",
+    "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
-    "react-native": "0.70.5",
-    "react-native-webrtc": "^106.0.5",
-    "expo-splash-screen": "~0.17.5"
+    "react-native": "0.70.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
