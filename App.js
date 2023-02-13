@@ -2,13 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from "react";
 import { Platform } from "react-native";
-import { registerGlobals } from "@daily-co/react-native-webrtc";
+import Daily, {DailyMediaView, DailyEventObjectParticipant} from '@daily-co/react-native-daily-js';
 
 export default function App() {
 
   Platform.OS !== "web" && useEffect(async () => {
-    console.log('Registering webrtc globals')
-    registerGlobals();
     console.log('Options', await navigator.mediaDevices.enumerateDevices())
   }, []);
 
