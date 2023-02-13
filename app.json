@@ -20,7 +20,12 @@
     "ios": {
       "supportsTablet": true,
       "bitcode": false,
-      "bundleIdentifier": "daily.expo.demo"
+      "bundleIdentifier": "daily.expo.demo",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "voip"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
