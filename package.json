@@ -8,11 +8,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@config-plugins/react-native-webrtc": "^5.0.0",
     "expo": "~47.0.12",
+    "expo-dev-client": "~2.0.1",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "expo-dev-client": "~2.0.1",
+    "react-native-webrtc": "^106.0.5",
     "expo-splash-screen": "~0.17.5"
   },
   "devDependencies": {
