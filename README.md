@@ -10,6 +10,8 @@ This package cannot be used in the "Expo Go" app because [it requires custom nat
 
 More details about how to create your own development client instead of expo go in order to use native code which are not by default included on Expo can be found [here](https://docs.expo.dev/development/introduction/).
 
+This demo use `@daily-co/config-plugin-rn-daily-js` in order to work with Expo. More details [here](https://github.com/daily-co/rn-daily-js-expo-config-plugin).
+
 ### Remote Building
 
 If you do not have experience with Xcode and Android studio builds or do not have them installed locally on your computer, you will need to follow [this guide from Expo to use EAS Build](https://docs.expo.dev/development/create-development-builds/#create-and-install-eas-build).
@@ -17,6 +19,8 @@ If you do not have experience with Xcode and Android studio builds or do not hav
 ### Local Building
 
 You will need to have both Xcode and Android installed locally on your computer.
+
+#### Install the demo dependencies
 
 ```bash
 # Use the version of node specified in .nvmrc
