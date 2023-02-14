@@ -10,9 +10,13 @@ This package cannot be used in the "Expo Go" app because [it requires custom nat
 
 More details about how to create your own development client instead of expo go in order to use native code which are not by default included on Expo can be found [here](https://docs.expo.dev/development/introduction/).
 
-### Local Building
+### Remote Building
 
 If you do not have experience with Xcode and Android studio builds or do not have them installed locally on your computer, you will need to follow [this guide from Expo to use EAS Build](https://docs.expo.dev/development/create-development-builds/#create-and-install-eas-build).
+
+### Local Building
+
+You will need to have both Xcode and Android installed locally on your computer.
 
 ```bash
 # Use the version of node specified in .nvmrc
@@ -22,7 +26,7 @@ nvm i
 npm i
 ```
 
-### Running on iOS
+#### Running on iOS
 
 First, you'll need to do a one-time setup. This is required to build to a physical device.
 
@@ -49,7 +53,7 @@ After, simply run:
 npm run ios --device
 ```
 
-### Running on Android
+#### Running on Android
 
 After plugging in an Android device [configured for debugging](https://developer.android.com/studio/debug/dev-options), simply run:
 
@@ -61,18 +65,7 @@ npm run android --device
 
 ### Room configuration
 
-To keep things simple, a one-time, temporary Daily room is used. To use one of your own rooms, update the object returned in `/api.ts`.
-
-```js
-async function createRoom(): Promise<{ url: string }> {
-  let response = await fetch(newRoomEndpoint),
-    room = await response.json();
-  return room;
-
-  // Comment out the above and uncomment the below, using your own URL
-  // return { url: "https://your-domain.daily.co/hello" };
-}
-```
+You will need to have your own room in order to use this app. 
 
 As a reminder, you can create and configure rooms through your [Daily dashboard](https://dashboard.daily.co/rooms) or through calls to the [Daily REST API](https://docs.daily.co/reference#rooms).
 
