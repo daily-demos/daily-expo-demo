@@ -32,7 +32,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   infoView: {
-    alignItems: 'center'
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   controlButton: {
     flex: 1
@@ -43,27 +45,27 @@ const ROOM_URL_TEMPLATE = 'https://filipi.daily.co/public';
 
 export default function App() {
 
-  const [videoTrack, setVideoTrack] = useState(null);
-  const [callObject, setCallObject] = useState(null);
+  const [videoTrack, setVideoTrack] = useState();
+  const [callObject, setCallObject] = useState();
   const [inCall, setInCall] = useState(false);
-  const [roomUrl, setRoomUrl] = useState();
+  const [roomUrl, setRoomUrl] = useState(ROOM_URL_TEMPLATE);
+  const [amountOfRemoteParticipants, setAmountOfRemoteParticipants] = useState(0);
 
-  const handleNewParticipantsState = useCallback(
-    (event: DailyEventObjectParticipant) => {
-      // ignoring to don't show the video from the local participant
-      if (event.participant.local) {
-        return;
-      }
-      const videoTrack = event.participant.tracks.video;
-      setVideoTrack(videoTrack.track);
-    },
-    [],
-  );
+  const handleNewParticipantsState = (event: DailyEventObjectParticipant) => {
+    // ignoring to don't show the video from the local participant
+    if (event.participant.local) {
+      return;
+    }
+    const videoTrack = event.participant.tracks.video;
+    setVideoTrack(videoTrack.track);
+    //-1 to ignore the local participant
+    setAmountOfRemoteParticipants(callObject.participantCounts().present - 1)
+  }
 
   const joinRoom = () => {
     console.log('Invoking to join')
     callObject.join({
-      url: roomUrl || ROOM_URL_TEMPLATE,
+      url: roomUrl,
     });
   }
 
@@ -79,33 +81,50 @@ export default function App() {
   // Create the callObject and join the meeting
   useEffect(() => {
     const callObject = Daily.createCallObject();
+    setCallObject(callObject);
+    return () => {};
+  }, []);
+
+  //Add the listeners
+  useEffect(() => {
+    if(!callObject) {
+      return
+    }
     callObject.on('joined-meeting', () => setInCall(true));
     callObject.on('left-meeting', () => setInCall(false));
     callObject.on('participant-joined', handleNewParticipantsState);
     callObject.on('participant-updated', handleNewParticipantsState);
-    setCallObject(callObject);
+    callObject.on('participant-left', handleNewParticipantsState);
     return () => {};
-  }, []);
+  }, [callObject]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
       {inCall ? (
         <View style={styles.inCallContainer}>
-          <DailyMediaView
-            videoTrack={videoTrack}
-            mirror={false}
-            objectFit="cover"
-            style={styles.dailyMediaView}
-          />
+          { amountOfRemoteParticipants > 0 ? (
+            <DailyMediaView
+              videoTrack={videoTrack}
+              mirror={false}
+              objectFit="cover"
+              style={styles.dailyMediaView}
+            />
+          ) : (
+            <View style={styles.infoView}>
+              <Text>There is no one else in this call yet!</Text>
+              <Text>Invite the participants to join this call:</Text>
+              <Text>{roomUrl}</Text>
+            </View>
+          )}
           <Button style={styles.controlButton} onPress={() => leaveRoom()} title="Leave call"></Button>
         </View>
       ) : (
         <View style={styles.outCallContainer}>
           <View style={styles.infoView}>
             <Text>Not in a call yet</Text>
-            <TextInput style={styles.roomUrlInput} value={roomUrl || ROOM_URL_TEMPLATE} onChangeText={(e) => setRoomUrl(e.target.value)} />
+            <TextInput style={styles.roomUrlInput} value={roomUrl} onChangeText={(e) => setRoomUrl(e.target.value)} />
+            <Button style={styles.controlButton}  onPress={() => joinRoom()} title="Join call"></Button>
           </View>
-          <Button style={styles.controlButton}  onPress={() => joinRoom()} title="Join call"></Button>
         </View>
       )}
     </SafeAreaView>
