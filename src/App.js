@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {View, SafeAreaView, StyleSheet, Text, Button} from 'react-native';
 import React, {useEffect, useState, useCallback} from 'react';
 import Daily, {DailyMediaView, DailyEventObjectParticipant} from '@daily-co/react-native-daily-js';
 
@@ -19,6 +19,7 @@ export default function App() {
 
   const [videoTrack, setVideoTrack] = useState(null);
   const [callObject, setCallObject] = useState(null);
+  const [inCall, setInCall] = useState(false);
 
   const handleNewParticipantsState = useCallback(
     (event: DailyEventObjectParticipant) => {
@@ -32,22 +33,31 @@ export default function App() {
     [],
   );
 
-  useEffect(() => {
-    if (!callObject) {
-      return;
+  const joinRoom = () => {
+    console.log('Invoking to join')
+    callObject.join({
+      // TODO add your URL here
+      url: 'https://filipi.daily.co/public',
+    });
+  }
+
+  const leaveRoom = async () => {
+    console.log('Invoking to leave')
+    await callObject.leave();
+    let videos = document.getElementsByTagName('video');
+    for (let vid of videos) {
+      vid.remove();
     }
-    callObject.on('participant-joined', handleNewParticipantsState);
-    callObject.on('participant-updated', handleNewParticipantsState);
-  }, [handleNewParticipantsState, callObject]);
+  };
 
   // Create the callObject and join the meeting
   useEffect(() => {
-    const call = Daily.createCallObject();
-    call.join({
-      // TODO add your URL here
-      url: 'https://YOUR_DOMAIN.daily.co/YOUR_ROOM',
-    });
-    setCallObject(call);
+    const callObject = Daily.createCallObject();
+    callObject.on('joined-meeting', () => setInCall(true));
+    callObject.on('left-meeting', () => setInCall(false));
+    callObject.on('participant-joined', handleNewParticipantsState);
+    callObject.on('participant-updated', handleNewParticipantsState);
+    setCallObject(callObject);
     return () => {};
   }, []);
 
@@ -55,6 +65,13 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Text>Sample Daily call with Expo</Text>
+      <View>
+        {inCall ? (
+          <Button onPress={() => leaveRoom()} title="Leave call"></Button>
+        ) : (
+          <Button onPress={() => joinRoom()} title="Join call"></Button>
+        )}
+      </View>
       <DailyMediaView
         videoTrack={videoTrack}
         mirror={false}
