@@ -57,7 +57,7 @@ Once an is account added, close `Preferences` and select the folder icon in the 
 
 After, simply run:
 ```
-npm run ios --device
+npm run ios
 ```
 
 #### Running on Android
@@ -65,7 +65,7 @@ npm run ios --device
 After plugging in an Android device [configured for debugging](https://developer.android.com/studio/debug/dev-options), simply run:
 
 ```
-npm run android --device
+npm run android
 ```
 
 ---
