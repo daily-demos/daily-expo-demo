@@ -28,6 +28,9 @@ nvm i
 
 # Install dependencies
 npm i
+
+# Before a native app can be compiled, the native source code must be generated.
+npx expo prebuild
 ```
 
 #### Running on iOS
