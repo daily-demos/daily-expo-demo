@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": true,
       "bitcode": false,
-      "bundleIdentifier": "daily.expo.demo",
+      "bundleIdentifier": "co.daily.expo.DailyDemo",
       "infoPlist": {
         "UIBackgroundModes": [
           "voip"
@@ -32,7 +32,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "daily.expo.demo",
+      "package": "co.daily.expo.DailyDemo",
       "permissions": [
         "android.permission.ACCESS_NETWORK_STATE",
         "android.permission.BLUETOOTH",
