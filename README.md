@@ -54,9 +54,13 @@ If you're newer to Xcode, here are some more detailed instructions to get you st
 
 First, open the project in Xcode. Make sure to specifically select `dailyexpodemo.xcworkspace` from `/ios`. This is also a good time to plug in your iOS device to be sure the following steps are successful.
 
-From the main menu, select `Preferences` and then `Accounts`. Click the `+` sign to add an account (e.g. an Apple ID).
+From the main menu, select `Settings` and then `Accounts`. Click the `+` sign to add an account (e.g. an Apple ID).
 
-Once an is account added, close `Preferences` and select the folder icon in the top left corner. Then select `dailyexpodemo` from the side panel and navigate to `Signing & Capabilities` in the top nav bar. Open the "Team" dropdown and select the account added in the previous step. The "Signing Certificate" section should update accordingly with your account information.
+![xcode-accounts.png](./docsAssets/xcode-accounts.png)
+
+Once an is account added, close `Settings` and select the folder icon in the top left corner. Then select `dailyexpodemo` from the side panel and navigate to `Signing & Capabilities` in the top nav bar. Open the "Team" dropdown and select the account added in the previous step. The "Signing Certificate" section should update accordingly with your account information.
+
+![xcode-signing.png](./docsAssets/xcode-signing.png)
 
 **Troubleshooting common errors:**
 
@@ -70,7 +74,7 @@ Once an is account added, close `Preferences` and select the folder icon in the 
 
 - You may also be prompted to enter you login keychain password. Be sure to click `Always trust` to avoid the prompt showing multiple times.
 
-After, simply run:
+After, run the following command:
 ```
 npm run ios
 ```
