@@ -58,7 +58,16 @@ From the main menu, select `Settings` and then `Accounts`. Click the `+` sign to
 
 ![xcode-accounts.png](./docsAssets/xcode-accounts.png)
 
-Once an is account added, close `Settings` and select the folder icon in the top left corner. Then select `dailyexpodemo` from the side panel and navigate to `Signing & Capabilities` in the top nav bar. Open the "Team" dropdown and select the account added in the previous step. The "Signing Certificate" section should update accordingly with your account information.
+Once an account is added, perform the following steps:
+
+ 1. Close `Settings`.
+ 1. Select the folder icon in the top left corner.
+ 1. Select `dailyexpodemo` from the side panel
+ 1. Navigate to `Signing & Capabilities` in the top nav bar.
+ 1. Open the "Team" dropdown
+ 1. Select the account added in the previous step. 
+ 
+The "Signing Certificate" section should update accordingly with your account information.
 
 ![xcode-signing.png](./docsAssets/xcode-signing.png)
 
