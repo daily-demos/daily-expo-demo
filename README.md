@@ -11,7 +11,7 @@ This project cannot be used with [Expo Go](https://docs.expo.dev/workflow/expo-g
 When a project requires custom native code or a config plugin, we need to transition from using [Expo Go](https://docs.expo.dev/workflow/expo-go/) 
 to a [development build](https://docs.expo.dev/development/introduction/).
 
-More details about the custom native codes used by this demo can be found on this project: [rn-daily-js-expo-config-plugin](https://github.com/daily-co/rn-daily-js-expo-config-plugin).
+More details about the custom native code used by this demo can be found in [rn-daily-js-expo-config-plugin](https://github.com/daily-co/rn-daily-js-expo-config-plugin).
 
 ### Building remotely
 
