@@ -6,7 +6,7 @@ A simple app showcasing [react-native-daily-js](https://github.com/daily-co/reac
 
 ### Expo requirements
 
-This project cannot be used with [Expo Go](https://docs.expo.dev/workflow/expo-go/) app because [it requires custom native code](https://docs.expo.io/workflow/customizing/).
+This project cannot be used with an [Expo Go](https://docs.expo.dev/workflow/expo-go/) app because [it requires custom native code](https://docs.expo.io/workflow/customizing/).
 
 When a project requires custom native code or a config plugin, we need to transition from using [Expo Go](https://docs.expo.dev/workflow/expo-go/) 
 to a [development build](https://docs.expo.dev/development/introduction/).
