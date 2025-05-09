@@ -1,7 +1,7 @@
 #!/bin/bash
 # clear
-rm -rf ../ios/
-rm -rf ../android/
+rm -rf ./ios/
+rm -rf ./android/
 # Use the version of node specified in .nvmrc
 nvm i
 # Install dependencies
