@@ -1,7 +1,9 @@
 #!/bin/bash
 # clear
+rm package-lock.json
 rm -rf ./ios/
 rm -rf ./android/
+rm -rf node_modules/
 # Use the version of node specified in .nvmrc
 nvm i
 # Install dependencies
