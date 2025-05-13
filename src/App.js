@@ -60,7 +60,7 @@ export default function App() {
   const [roomUrl, setRoomUrl] = useState(ROOM_URL_TEMPLATE);
   const [remoteParticipantCount, setRemoteParticipantCount] = useState(0);
 
-  const handleNewParticipantsState = (event: DailyEventObjectParticipant) => {
+  const handleNewParticipantsState = (event) => {
     const participant = event.participant;
     // Early out as needed to avoid display the local participant's video
     if (participant.local) {
@@ -72,11 +72,15 @@ export default function App() {
     setRemoteParticipantCount(callObject.participantCounts().present - 1);
   };
 
-  const joinRoom = () => {
+  const joinRoom = async () => {
     console.log("Joining room");
-    callObject.join({
-      url: roomUrl,
-    });
+    try {
+      await callObject.join({
+        url: roomUrl,
+      });
+    } catch (e) {
+      console.log("Received error when joining:", e);
+    }
   };
 
   const leaveRoom = async () => {
