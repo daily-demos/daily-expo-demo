@@ -10,8 +10,8 @@
   "dependencies": {
     "@config-plugins/react-native-webrtc": "^10.0.0",
     "@daily-co/config-plugin-rn-daily-js": "0.0.7",
-    "@daily-co/react-native-daily-js": "file:///Users/filipifuchter/workspaces/workspaceDaily/pluot-core/react-native-daily-js/daily-co-react-native-daily-js-0.77.0.tgz",
-    "@daily-co/react-native-webrtc": "file:///Users/filipifuchter/workspaces/workspaceDaily/react-native-webrtc/daily-co-react-native-webrtc-118.0.3-daily.3.tgz",
+    "@daily-co/react-native-daily-js": "file:///Users/filipifuchter/workspaces/workspaceDaily/pluot-core/react-native-daily-js/daily-co-react-native-daily-js-0.76.0.tgz",
+    "@daily-co/react-native-webrtc": "118.0.3-daily.3",
     "@react-native-async-storage/async-storage": "1.24.0",
     "expo": "^52.0.46",
     "expo-build-properties": "~0.13.2",
