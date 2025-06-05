@@ -3,6 +3,7 @@
     "name": "daily-expo-demo",
     "slug": "daily-expo-demo",
     "version": "1.0.0",
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -53,15 +54,21 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "@config-plugins/react-native-webrtc",
-      "@daily-co/config-plugin-rn-daily-js",
+      [
+        "@daily-co/config-plugin-rn-daily-js",
+        {
+          "enableCamera": true,
+          "enableMicrophone": true,
+          "enableScreenShare": false
+        }
+      ],
       [
         "expo-build-properties",
         {
           "android": {
             "minSdkVersion": 24,
             "compileSdkVersion": 35,
-            "targetSdkVersion": 34,
+            "targetSdkVersion": 35,
             "buildToolsVersion": "35.0.0"
           },
           "ios": {
